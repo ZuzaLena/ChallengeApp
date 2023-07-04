@@ -9,6 +9,19 @@ List<Employee> users = new List<Employee>()
    user1, user2, user3
 };
 
+
+user1.AddScore(5);
+user1.AddScore(6);
+user1.AddScore(9);
+
+user2.AddScore(6);
+user2.AddScore(5);
+user2.AddScore(7);
+
+user3.AddScore(2);
+user3.AddScore(3);
+user3.AddScore(9);
+
 int maxResult = -1;
 Employee userWithMaxResult = null;
 
@@ -21,17 +34,6 @@ foreach (var user in users)
     }
 }
 
-user1.AddScore(5);
-user1.AddScore(6);
-user1.AddScore(8);
-
-user2.AddScore(6);
-user2.AddScore(7);
-user2.AddScore(3);
-
-user3.AddScore(2);
-user3.AddScore(9);
-user3.AddScore(4);
 
 Console.WriteLine(userWithMaxResult.Name + " " + userWithMaxResult.Surname + " lat " + userWithMaxResult.Age +" ilość punktów " + userWithMaxResult.Result);
 
