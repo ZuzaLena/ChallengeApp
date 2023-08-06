@@ -1,41 +1,20 @@
 ﻿using ChallengeApp;
+using System.ComponentModel.Design;
 
-Employee user1 = new Employee("Adam", "Nowak", 32, 0);
-Employee user2 = new Employee("Zuza", "Kamińska", 35, 0);
-Employee user3 = new Employee("Lena", "Kowalska", 29, 0);
+var employee = new Employee("Jan", "Kowalski");
+employee.AddGrade("2000");
+employee.AddGrade("Zuza");
+employee.AddGrade("8");
+employee.AddGrade(2);
+employee.AddGrade((uint)6);
+employee.AddGrade((double)96);
+employee.AddGrade((long)2);
+employee.AddGrade((ulong)3);
+employee.AddGrade((decimal)4.10M);
 
-List<Employee> users = new List<Employee>()
-{
-   user1, user2, user3
-};
-
-
-user1.AddScore(5);
-user1.AddScore(6);
-user1.AddScore(9);
-
-user2.AddScore(6);
-user2.AddScore(5);
-user2.AddScore(7);
-
-user3.AddScore(2);
-user3.AddScore(3);
-user3.AddScore(9);
-
-int maxResult = -1;
-Employee userWithMaxResult = null;
-
-foreach (var user in users)
-{
-    if (user.Result > maxResult)
-    {
-        userWithMaxResult = user;
-        maxResult = user.Result;
-    }
-}
-
-
-Console.WriteLine(userWithMaxResult.Name + " " + userWithMaxResult.Surname + " lat " + userWithMaxResult.Age +" ilość punktów " + userWithMaxResult.Result);
-
-
-
+var statistics = employee.GetStatistics();
+Console.WriteLine($"{employee.Name} {employee.Surname}");
+Console.WriteLine($"Average: {statistics.Average:N2}");
+Console.WriteLine($"Max: {statistics.Max}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Sum: {statistics.Sum}");
